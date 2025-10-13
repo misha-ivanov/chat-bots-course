@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def makeRequest(method: str, **param) -> dict:
-    json_data = json.dumps(param).encode('utf-8')
+    json_data = json.dumps(param, ensure_ascii=False).encode('utf-8')
     
     request = urllib.request.Request(
         method='POST',
